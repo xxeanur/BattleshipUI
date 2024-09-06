@@ -1,0 +1,5 @@
+export {default as Container} from "./container"
+export {default as Game} from "./game"
+export {default as ChangePassword} from "./changePassword"
+export {default as LanguageAndTheme} from "./languageAndtheme"
+export {default as MainComponent} from "./mainComponent"
