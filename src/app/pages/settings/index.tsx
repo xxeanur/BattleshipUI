@@ -7,7 +7,7 @@ import { Outlet, useNavigate } from 'react-router';
 import { useLanguageContext } from '../../context/localization/localization';
 
 function Settings() {
-  const {language}=useLanguageContext();
+  const { language } = useLanguageContext();
   const navigate = useNavigate();
   const classes = style();
 
@@ -23,7 +23,7 @@ function Settings() {
         <div className={classes.contentAndMenuBox}>
           <div className={classes.menu}>
             <div>
-              <button onClick={() => { navigate("ChangePassword") }}>{language.changePasswordSettings}</button>
+              <button onClick={() => { navigate("UpdatePassword") }}>{language.changePasswordSettings}</button>
             </div>
             <div>
               <button onClick={() => { navigate("displaysettings") }}>{language.LanguageAndThemeSettings}</button>

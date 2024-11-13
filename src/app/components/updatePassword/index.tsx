@@ -4,7 +4,7 @@ import { useThemeContext } from '../../context/theme/theme';
 import { useLanguageContext } from '../../context/localization/localization';
 import { useFormik } from 'formik';
 import {updatePasswordValidation} from '../../validations/updatePasswordValidation'
-function ChangePassword() {
+function UpdatePassword() {
   const { language } = useLanguageContext();
   const { theme } = useThemeContext();
   const classes = style(theme);
@@ -50,4 +50,4 @@ validationSchema:updatePasswordValidation
   )
 }
 
-export default ChangePassword
+export default UpdatePassword;
