@@ -4,29 +4,42 @@ import Logo from '../../assets/shipping-logo.png'
 import { Container } from '../../components';
 import { useThemeContext } from '../../context/theme/theme';
 import { useLanguageContext } from '../../context/localization/localization';
-import { FormikConfig, FormikValues, useFormik } from 'formik';
+import { useFormik } from 'formik';
 import { loginValidation } from '../../validations/loginValidations';
+import { login } from '../../services/loginService';
+import { useNavigate } from 'react-router';
 
 
 function Login() {//companentin içine html elementi göndermek için children kullanılır
 
   const { theme } = useThemeContext();
   const classes = style(theme);
-  const {language}=useLanguageContext();
+  const { language } = useLanguageContext();
+  const navigate = useNavigate();
 
-  const {values,handleChange,errors,handleSubmit}=useFormik({
-    initialValues:{
-      username:"",
-      password:"",
+  const { values, handleChange, errors, handleSubmit } = useFormik({
+    initialValues: {
+      username: "",
+      password: "",
     },
-    onSubmit:(values)=>{
-      //form gönderildiğinde yapılacak işlem
-      console.log(values);
-    },
-    validationSchema:loginValidation
-  } );
+    validationSchema: loginValidation,
+    onSubmit: async (values) => {
+      try {
+        const { username, password } = values;
+        const result = await login({ username, password });
 
-// changeTheme("dark")
+        if (result && result.success) {
+          navigate("/Home");
+        }
+
+      } catch (error: any) {
+        console.log(error.message);
+        alert("Kullanıcı adı veya şifre hatalı.");
+      }
+    }
+  });
+
+
   return (
     <Container>
       <div className={classes.container}>
@@ -37,21 +50,21 @@ function Login() {//companentin içine html elementi göndermek için children k
 
         <div className={classes.form}>
 
-          <form  onSubmit={handleSubmit}>
-          <div className={classes.inputGroup}>
-            <label htmlFor="">{language.username}</label>
-            <input type="text"  name="username" value={values.username} onChange={handleChange} />
-            {errors.username && <label className={classes.errorMessage}>{errors.username}</label>}
-          </div>
-          <div className={classes.inputGroup}>
-            <label htmlFor="">{language.password}</label>
-            <input type="password" name="password" value={values.password} onChange={handleChange}/>
-            {errors.password && <label className={classes.errorMessage}>{errors.password}</label>}
-          </div>
+          <form onSubmit={handleSubmit}>
+            <div className={classes.inputGroup}>
+              <label htmlFor="">{language.username}</label>
+              <input type="text" name="username" value={values.username} onChange={handleChange} />
+              {errors.username && <label className={classes.errorMessage}>{errors.username}</label>}
+            </div>
+            <div className={classes.inputGroup}>
+              <label htmlFor="">{language.password}</label>
+              <input type="password" name="password" value={values.password} onChange={handleChange} />
+              {errors.password && <label className={classes.errorMessage}>{errors.password}</label>}
+            </div>
 
-          <div className={classes.submitButton}>
-            <button type='submit'>{language.loginButton}</button>
-          </div>
+            <div className={classes.submitButton}>
+              <button type='submit'>{language.loginButton}</button>
+            </div>
           </form>
         </div>
 

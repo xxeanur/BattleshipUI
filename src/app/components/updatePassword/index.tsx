@@ -23,7 +23,6 @@ validationSchema:updatePasswordValidation
   return (
 
     <div className={classes.container}>
-
       <form action="" onSubmit={handleSubmit}>
         <div className={classes.Form}>
           <div className={classes.inputForm}>

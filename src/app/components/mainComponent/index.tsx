@@ -16,10 +16,10 @@ function MainComponent({ children }: MainProps) {
 
 
     const logout = () => {
-
         localStorage.removeItem("JWT");
         navigate("/Login");
     }
+    
     return (
         <div className={classes.container}>
             <div className={classes.settingsBox}>
