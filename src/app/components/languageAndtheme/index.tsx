@@ -7,17 +7,7 @@ import { useNavigate } from 'react-router';
 function LanguageAndTheme() {
 
   const {language,changeLanguage}=useLanguageContext();
-  const { theme, changeTheme } = useThemeContext();
-  // const navigate= useNavigate();
-  
-  // useEffect(() => {
-  //   const token = localStorage.getItem("JWT");
-  //   if (!token) {
-  //     navigate("/login");
-  //   }
-  // }, [navigate]);
-  
-
+  const { theme, changeTheme } = useThemeContext();  
 
   const changeThemeSection = (event: ChangeEvent<HTMLSelectElement>) => {
     changeTheme(event.target.value);

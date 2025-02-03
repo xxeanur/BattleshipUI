@@ -5,36 +5,31 @@ export const style = createUseStyles({
         padding: "0px",
         margin: "0px",
         position: 'relative',
-        zIndex: '5',
         width: '100%',
-        height: "100vh",
-        backgroundColor: (theme:any)=>theme.BackgroundColor,
-        display: "flex",
-        justifyContent: 'center',
-        alignItems: 'center'
+        minHeight: "100%",
+        backgroundColor: (theme: any) => theme.BackgroundColor,
     },
     content: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center'
-        
+        display:"flex",
+        width:"100%",
+        justifyContent:"center",
+        alignItems:"center",
+        minHeight: "calc(100vh - 50px)"
     },
     settingsBox: {
-        position: 'absolute',
+        height: 70,
         zIndex: '5',
         display: 'flex',
-        flexDirection: 'row',
-        right: 0,
-        top: 0,
-        paddingRight: '20px',
-        paddingTop: '20px',
+        alignItems:"center",
+        gap: 5,
+        paddingRight: 10,
+        justifyContent: "end",
         '& svg': {
             width: '35px',
             height: '35px',
         },
         '& button': {
             padding: "5px",
-            marginLeft: '15px',
             borderRadius: '10px',
             border: "2px solid black",
             cursor: "pointer",
@@ -46,29 +41,4 @@ export const style = createUseStyles({
     logoutButton: {
         backgroundColor: '#970000'
     },
-
-
-
-    "@media(max-width:1000px)": {
-
-        settingsBox: {
-            paddingRight: '10px',
-            paddingTop: '10px',
-            '& svg': {
-                width: '30px',
-                height: '30px',
-            },
-        },
-        container: {
-            position: 'absolute',
-            width: '100%',
-            height: "100%",
-            backgroundColor: '#d9d9d9',
-            display: "block",
-        },
-        content: {
-            height:'100%',
-        }
-
-    }
 })

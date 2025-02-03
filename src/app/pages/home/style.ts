@@ -33,7 +33,6 @@ export const style = createUseStyles({
 
     "@media(max-width:1000px)": {
         searchForPlayers: {
-            marginTop:"250px",
             '& button': {
                 width: '100%',
                 height: '80px',

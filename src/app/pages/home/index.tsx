@@ -19,27 +19,14 @@ function Home() {
   const classes = style(theme);
 
 
-
-
-
-  // Token yoksa login sayfasına yönlendir
-
-  //Butona basıldığında /game url yönlendirmesi yapmamı sağlayan fonksiyon
-  //const [karsioyuncu, setKarsioyuncu] = useState(false);
-  //useffect:React'in en önemli hook'larından biridir ve fonksiyonel bileşenlerde yan etkileri (side effects) yönetmek için kullanılır. Yan etkiler, bileşenin yaşam döngüsü boyunca gerçekleşen işlemleri ifade eder, örneğin veri çekme, DOM manipülasyonu, abonelikleri başlatma veya temizleme gibi.
-
-
-  //useRef hook'u, React bileşenlerinde DOM elementlerine veya başka değerlere doğrudan erişim sağlamak ve bileşenin yaşam döngüsü boyunca değişmeyecek bir referans (veya değer) oluşturmak için kullanılır.
   const startbutton = useRef<HTMLDivElement>(null);
   const gameComponent = useRef<HTMLDivElement>(null);
 
 
 
   const searchPlayers = () => {
-    if (startbutton.current)//Bu current özelliği, referans alınan DOM elementine erişim sağlar. Bileşen render edildikten sonra current, referans verdiğiniz DOM elemanını içerir.
+    if (startbutton.current)
       startbutton.current.style.display = "none";
-
-    //backende gidecek loading çıkacak 
 
     if (gameComponent.current)
       gameComponent.current.style.display = "block";
@@ -51,7 +38,7 @@ function Home() {
         <div ref={startbutton} className={classes.searchForPlayers}>
           <button onClick={searchPlayers}>
             <FontAwesomeIcon icon={faPlay} />
-            <h1>{language.searchPlayers}</h1>
+            <h1>{language.startGame}</h1>
           </button>
         </div>
 

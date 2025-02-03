@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect } from 'react'
-import { useLocation, useNavigate } from 'react-router';
+import { useLocation} from 'react-router';
 import { axiosInstance } from '../../services/HttpCustomService';
 
 interface props {

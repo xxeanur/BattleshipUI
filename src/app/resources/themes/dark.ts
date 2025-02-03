@@ -5,6 +5,8 @@ const darkTheme={
     buttonBackgroundColor:"rgba(30,30,30)",
     borderColor: 'white',
     inputBackgroundColor:'rgba(69,69,69,255)',
-    searchButtonBackgroundColor:'#515556'
+    searchButtonBackgroundColor:'#515556',
+    gameComponent:"#454545",
+    playerFontColor:"white",
 }
 export default darkTheme;

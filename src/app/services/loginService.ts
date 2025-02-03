@@ -8,7 +8,7 @@ export const login = async (data: {
     try {
         const response = await axiosInstance.post("/login", data);
 
-        const token = response.data.token;//jwt tokeni çektim
+        const token = response.data.token;
         localStorage.setItem("JWT", token);
         return response.data;
 

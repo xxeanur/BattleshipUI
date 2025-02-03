@@ -8,14 +8,16 @@ import { useFormik } from 'formik';
 import { loginValidation } from '../../validations/loginValidations';
 import { login } from '../../services/loginService';
 import { useNavigate } from 'react-router';
+import { useNotificationContext } from '../../context/notification/notificationContext';
 
 
-function Login() {//companentin içine html elementi göndermek için children kullanılır
+function Login() {
 
   const { theme } = useThemeContext();
   const classes = style(theme);
   const { language } = useLanguageContext();
   const navigate = useNavigate();
+  const {showNotification}=useNotificationContext();
 
   const { values, handleChange, errors, handleSubmit } = useFormik({
     initialValues: {
@@ -33,8 +35,8 @@ function Login() {//companentin içine html elementi göndermek için children k
         }
 
       } catch (error: any) {
-        console.log(error.message);
-        alert("Kullanıcı adı veya şifre hatalı.");
+        // console.log(error.message);
+        showNotification("Kullanıcı adı veya şifre hatalı.","error");
       }
     }
   });

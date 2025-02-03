@@ -4,22 +4,23 @@ import React from 'react'
 import { useNavigate } from 'react-router';
 import { style } from './style';
 import { useThemeContext } from '../../context/theme/theme';
+import { useNotificationContext } from '../../context/notification/notificationContext';
 
 interface MainProps {
-    children: React.ReactNode;//bileşenin içindeki html ögelerini tesil eder
+    children: React.ReactNode;//bileşenin içindeki html ögelerini temsil eder
 }
 
 function MainComponent({ children }: MainProps) {
     const navigate = useNavigate();
-    const {theme}=useThemeContext();
+    const { theme } = useThemeContext();
     const classes = style(theme);
-
+    const {showNotification}=useNotificationContext();
 
     const logout = () => {
         localStorage.removeItem("JWT");
         navigate("/Login");
     }
-    
+
     return (
         <div className={classes.container}>
             <div className={classes.settingsBox}>
@@ -31,7 +32,7 @@ function MainComponent({ children }: MainProps) {
                 </button>
             </div>
             <div className={classes.content}>
-                {children} 
+                {children}
             </div>
         </div>
     )

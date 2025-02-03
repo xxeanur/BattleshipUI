@@ -5,7 +5,9 @@ const lightTheme = {
     buttonBackgroundColor: "#CECECE",
     borderColor: 'white',
     inputBackgroundColor: 'white',
-    searchButtonBackgroundColor:'#999999'
+    searchButtonBackgroundColor:'#999999',
+    gameComponent:"#969696",
+    playerFontColor:"black",
 }
 
 export default lightTheme;

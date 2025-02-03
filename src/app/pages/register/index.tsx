@@ -8,11 +8,12 @@ import { useLanguageContext } from '../../context/localization/localization';
 import { useFormik } from 'formik';
 import { RegisterValidation } from '../../validations/registerValidation';
 import { registerUser } from '../../services/registerService';
+import { useNotificationContext } from '../../context/notification/notificationContext';
 function Register() {
   const { language } = useLanguageContext();
   const { theme } = useThemeContext();
   const classes = style(theme);
-
+const {showNotification}=useNotificationContext();
   const { values, errors, handleChange, handleSubmit } = useFormik({
     initialValues: {
       username: "",
@@ -26,11 +27,11 @@ function Register() {
         const { username, email, password, passwordAgain } = values;
 
         const result = await registerUser({ username, email, password, passwordAgain });
-        console.log('Registration successful:', result);
-        alert("Kayıt başarılı.");//kullanıcıya gösterilecek mesaj
+        // console.log('Registration successful:', result);
+        showNotification("Kayıt başarılı.","success");
       } catch (error: any) {
         console.log(error.message);
-        alert("Kayıt başarısız. Lütfen tekrar deneyin.");
+        showNotification("Kayıt başarısız. Lütfen tekrar deneyin.","error");
       }
 
     },

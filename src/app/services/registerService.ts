@@ -9,7 +9,7 @@ export const registerUser = async (data: {
 }) => {
     try {
         const response = await axiosInstance.post("/register", data);
-        return response.data;//sunucudan dönen veriyi döndürüyorum
+        return response.data;
 
     } catch (error: any) {
         throw new Error(error.response?.data?.message || "Kayıt işlemi başarısız.");

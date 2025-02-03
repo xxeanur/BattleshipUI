@@ -8,8 +8,6 @@ function App() {
   const classes = style();
   return (
       <Navigations></Navigations>
- 
-
   );
 }
 export default App;

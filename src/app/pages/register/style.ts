@@ -85,6 +85,7 @@ export const style = createUseStyles({
         justifyContent: 'center',
         alignItems: 'center',
         '& button': {
+            cursor: "pointer",
             width: '300px',
             height: '35px',
             borderRadius: '10px',
