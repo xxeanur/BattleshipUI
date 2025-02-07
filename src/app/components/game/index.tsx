@@ -167,7 +167,7 @@ function Game() {
 
   function SearchPlayer() {
     if (readyGrid !== true) {
-      showNotification("Lütfen oyun ızgırasını sıfırladıktan sonra oyunu başlatın! ", "info");
+      showNotification("Lütfen oyun tahtasını sıfırladıktan sonra oyunu başlatın! ", "info");
       return;
     }
     if (shipCounter !== totalShips) {
